@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 11, 2015 7:30:08 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="dk.kea.sem2.exp.Studerende" table="Studerende" schema="dbo" catalog="Electives">
+        <id name="email" type="serializable">
+            <column name="Email" />
+            <generator class="assigned" />
+        </id>
+        <property name="navn" type="serializable">
+            <column name="Navn" not-null="true" />
+        </property>
+        <property name="harstemt1" type="java.lang.Integer">
+            <column name="Harstemt1" />
+        </property>
+        <property name="harstem2" type="java.lang.Integer">
+            <column name="Harstem2" />
+        </property>
+        <set name="runde2reses" inverse="true">
+            <key>
+                <column name="Email" not-null="true" unique="true" />
+            </key>
+            <one-to-many class="dk.kea.sem2.exp.Runde2res" />
+        </set>
+        <set name="valgfags" inverse="false" table="Finalvalgfag">
+            <key>
+                <column name="email" not-null="true" />
+            </key>
+            <many-to-many entity-name="dk.kea.sem2.exp.Valgfag">
+                <column name="valgfag_id" not-null="true" />
+            </many-to-many>
+        </set>
+        <set name="runde1reses" inverse="true">
+            <key>
+                <column name="Email" not-null="true" unique="true" />
+            </key>
+            <one-to-many class="dk.kea.sem2.exp.Runde1res" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
+    <property name="hibernate.connection.url">jdbc:sqlserver://localhost:1433;databaseName=Electives</property>
+    <property name="hibernate.connection.username">sa</property>
+    <property name="hibernate.connection.password">password13</property>
+    <mapping resource="dk/kea/sem2/exp/Valgfag.hbm.xml"/>
+    <mapping resource="dk/kea/sem2/exp/Studerende.hbm.xml"/>
+    <mapping resource="dk/kea/sem2/exp/Runde1.hbm.xml"/>
+    <mapping resource="dk/kea/sem2/exp/Runde1res.hbm.xml"/>
+    <mapping resource="dk/kea/sem2/exp/Runde2res.hbm.xml"/>
+    <mapping resource="dk/kea/sem2/exp/Runde2.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>

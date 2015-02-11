@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 11, 2015 7:30:08 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="dk.kea.sem2.exp.Runde2res" table="Runde2res" schema="dbo" catalog="Electives">
+        <id name="email" type="serializable">
+            <column name="Email" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="studerende" class="dk.kea.sem2.exp.Studerende" update="false" insert="false" fetch="select">
+            <column name="Email" not-null="true" unique="true" />
+        </many-to-one>
+        <many-to-one name="valgfagByBp1" class="dk.kea.sem2.exp.Valgfag" fetch="select">
+            <column name="bp1" not-null="true" />
+        </many-to-one>
+        <many-to-one name="valgfagByAp1" class="dk.kea.sem2.exp.Valgfag" fetch="select">
+            <column name="ap1" not-null="true" />
+        </many-to-one>
+        <many-to-one name="valgfagByBp2" class="dk.kea.sem2.exp.Valgfag" fetch="select">
+            <column name="bp2" not-null="true" />
+        </many-to-one>
+        <many-to-one name="valgfagByAp2" class="dk.kea.sem2.exp.Valgfag" fetch="select">
+            <column name="ap2" not-null="true" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>
